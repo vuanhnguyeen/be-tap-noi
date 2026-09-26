@@ -1,0 +1,31 @@
+import type { Topic } from "@/types/learning";
+
+export const vehiclesTopic: Topic = {
+  id: "topic-vehicles",
+  slug: "phuong-tien",
+  name: "Phương tiện",
+  description: "Nhiều phương tiện để bé nhận diện.",
+  coverImage: "/images/noto/vehicles/car.svg",
+  coverEmoji: "🚗",
+  themeColor: "#74C0FC",
+  items: [
+    { id: "vehicle-bicycle", name: "Xe đạp", speechText: "Xe đạp", audio: "/audio/vehicles/vehicle-bicycle.mp3", image: "/images/noto/vehicles/bicycle.svg", emoji: "🚲" },
+    { id: "vehicle-motorbike", name: "Xe máy", speechText: "Xe máy", audio: "/audio/vehicles/vehicle-motorbike.mp3", image: "/images/noto/vehicles/motorbike.svg", emoji: "🏍️" },
+    { id: "vehicle-car", name: "Xe ô tô", speechText: "Xe ô tô", audio: "/audio/vehicles/vehicle-car.mp3", image: "/images/noto/vehicles/car.svg", emoji: "🚗" },
+    { id: "vehicle-bus", name: "Xe buýt", speechText: "Xe buýt", audio: "/audio/vehicles/vehicle-bus.mp3", image: "/images/noto/vehicles/bus.svg", emoji: "🚌" },
+    { id: "vehicle-truck", name: "Xe tải", speechText: "Xe tải", audio: "/audio/vehicles/vehicle-truck.mp3", image: "/images/noto/vehicles/truck.svg", emoji: "🚚" },
+    { id: "vehicle-train", name: "Tàu hỏa", speechText: "Tàu hỏa", audio: "/audio/vehicles/vehicle-train.mp3", image: "/images/noto/vehicles/train.svg", emoji: "🚆" },
+    { id: "vehicle-plane", name: "Máy bay", speechText: "Máy bay", audio: "/audio/vehicles/vehicle-plane.mp3", image: "/images/noto/vehicles/airplane.svg", emoji: "✈️" },
+    { id: "vehicle-ship", name: "Tàu thủy", speechText: "Tàu thủy", audio: "/audio/vehicles/vehicle-ship.mp3", image: "/images/noto/vehicles/ship.svg", emoji: "🚢" },
+    { id: "vehicle-taxi", name: "Taxi", speechText: "Taxi", audio: "/audio/vehicles/vehicle-taxi.mp3", image: "/images/noto/vehicles/taxi.svg", emoji: "🚕" },
+    { id: "vehicle-ambulance", name: "Xe cứu thương", speechText: "Xe cứu thương", audio: "/audio/vehicles/vehicle-ambulance.mp3", image: "/images/noto/vehicles/ambulance.svg", emoji: "🚑" },
+    { id: "vehicle-fire-engine", name: "Xe cứu hỏa", speechText: "Xe cứu hỏa", audio: "/audio/vehicles/vehicle-fire-engine.mp3", image: "/images/noto/vehicles/fire-engine.svg", emoji: "🚒" },
+    { id: "vehicle-police-car", name: "Xe cảnh sát", speechText: "Xe cảnh sát", audio: "/audio/vehicles/vehicle-police-car.mp3", image: "/images/noto/vehicles/police-car.svg", emoji: "🚓" },
+    { id: "vehicle-tractor", name: "Máy kéo", speechText: "Máy kéo", audio: "/audio/vehicles/vehicle-tractor.mp3", image: "/images/noto/vehicles/tractor.svg", emoji: "🚜" },
+    { id: "vehicle-scooter", name: "Xe scooter", speechText: "Xe scooter", audio: "/audio/vehicles/vehicle-scooter.mp3", image: "/images/noto/vehicles/scooter.svg", emoji: "🛵" },
+    { id: "vehicle-tram", name: "Tàu điện", speechText: "Tàu điện", audio: "/audio/vehicles/vehicle-tram.mp3", image: "/images/noto/vehicles/tram.svg", emoji: "🚊" },
+    { id: "vehicle-metro", name: "Tàu điện ngầm", speechText: "Tàu điện ngầm", audio: "/audio/vehicles/vehicle-metro.mp3", image: "/images/noto/vehicles/metro.svg", emoji: "🚇" },
+    { id: "vehicle-helicopter", name: "Trực thăng", speechText: "Trực thăng", audio: "/audio/vehicles/vehicle-helicopter.mp3", image: "/images/noto/vehicles/helicopter.svg", emoji: "🚁" },
+    { id: "vehicle-rocket", name: "Tên lửa", speechText: "Tên lửa", audio: "/audio/vehicles/vehicle-rocket.mp3", image: "/images/noto/vehicles/rocket.svg", emoji: "🚀" },
+  ],
+};
