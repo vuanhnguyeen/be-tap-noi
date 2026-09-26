@@ -6,7 +6,7 @@ export const colorsTopic: Topic = {
   name: "Màu sắc",
   description: "Nhận biết màu sắc đa dạng qua vòng tròn lớn.",
   coverEmoji: "🎨",
-  themeColor: "#FFD166",
+  themeColor: "#F0C544",
   items: [
     { id: "color-red", name: "Màu đỏ", speechText: "Màu đỏ", audio: "/audio/colors/color-red.mp3", image: "/images/colors/red.svg", color: "#EF4444" },
     { id: "color-yellow", name: "Màu vàng", speechText: "Màu vàng", audio: "/audio/colors/color-yellow.mp3", image: "/images/colors/yellow.svg", color: "#FACC15" },

@@ -7,7 +7,7 @@ export const objectsTopic: Topic = {
   description: "Nhiều đồ dùng quen thuộc trong nhà.",
   coverImage: "/images/noto/objects/cup.svg",
   coverEmoji: "🥤",
-  themeColor: "#B197FC",
+  themeColor: "#A183D8",
   items: [
     { id: "object-cup", name: "Cái ly", speechText: "Cái ly", audio: "/audio/objects/object-cup.mp3", image: "/images/noto/objects/cup.svg", emoji: "🥤" },
     { id: "object-spoon", name: "Cái muỗng", speechText: "Cái muỗng", audio: "/audio/objects/object-spoon.mp3", image: "/images/noto/objects/spoon.svg", emoji: "🥄" },

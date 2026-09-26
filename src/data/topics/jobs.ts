@@ -7,7 +7,7 @@ export const jobsTopic: Topic = {
   description: "Bé làm quen với nhiều nghề nghiệp hơn.",
   coverImage: "/images/noto/jobs/doctor.svg",
   coverEmoji: "👩‍⚕️",
-  themeColor: "#FF9EB5",
+  themeColor: "#CE85CB",
   items: [
     { id: "job-doctor", name: "Bác sĩ", speechText: "Bác sĩ", audio: "/audio/jobs/job-doctor.mp3", image: "/images/noto/jobs/doctor.svg", emoji: "👩‍⚕️" },
     { id: "job-teacher", name: "Giáo viên", speechText: "Giáo viên", audio: "/audio/jobs/job-teacher.mp3", image: "/images/noto/jobs/teacher.svg", emoji: "🧑‍🏫" },

@@ -13,7 +13,7 @@ Website học nói tiếng Việt dành cho trẻ nhỏ (khoảng 2 tuổi), thi
 
 ## 2. Tính năng chính
 
-- Trang chủ hiển thị 7 chủ đề học
+- Trang chủ hiển thị 12 chủ đề học
 - Mỗi chủ đề có URL riêng, truy cập trực tiếp được
 - Trang học hiển thị từng từ một:
   - Hình minh họa lớn
@@ -35,6 +35,11 @@ Website học nói tiếng Việt dành cho trẻ nhỏ (khoảng 2 tuổi), thi
 
 - `/` (trang chọn chủ đề)
 - `/hoc/mau-sac` (16 từ)
+- `/hoc/so` (21 từ)
+- `/hoc/bang-chu-cai` (29 từ)
+- `/hoc/gia-dinh` (10 từ)
+- `/hoc/hanh-dong` (16 từ)
+- `/hoc/do-an` (16 từ)
 - `/hoc/con-vat` (30 từ)
 - `/hoc/trai-cay` (20 từ)
 - `/hoc/phuong-tien` (18 từ)

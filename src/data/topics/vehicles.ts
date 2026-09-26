@@ -7,7 +7,7 @@ export const vehiclesTopic: Topic = {
   description: "Nhiều phương tiện để bé nhận diện.",
   coverImage: "/images/noto/vehicles/car.svg",
   coverEmoji: "🚗",
-  themeColor: "#74C0FC",
+  themeColor: "#63A8E8",
   items: [
     { id: "vehicle-bicycle", name: "Xe đạp", speechText: "Xe đạp", audio: "/audio/vehicles/vehicle-bicycle.mp3", image: "/images/noto/vehicles/bicycle.svg", emoji: "🚲" },
     { id: "vehicle-motorbike", name: "Xe máy", speechText: "Xe máy", audio: "/audio/vehicles/vehicle-motorbike.mp3", image: "/images/noto/vehicles/motorbike.svg", emoji: "🏍️" },

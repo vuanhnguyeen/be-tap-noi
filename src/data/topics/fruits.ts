@@ -7,7 +7,7 @@ export const fruitsTopic: Topic = {
   description: "Học nhiều loại trái cây đa dạng hơn.",
   coverImage: "/images/noto/fruits/apple.svg",
   coverEmoji: "🍎",
-  themeColor: "#FF9F43",
+  themeColor: "#EF786B",
   items: [
     { id: "fruit-apple", name: "Quả táo", speechText: "Quả táo", audio: "/audio/fruits/fruit-apple.mp3", image: "/images/noto/fruits/apple.svg", emoji: "🍎" },
     { id: "fruit-green-apple", name: "Quả táo xanh", speechText: "Quả táo xanh", audio: "/audio/fruits/fruit-green-apple.mp3", image: "/images/noto/fruits/green-apple.svg", emoji: "🍏" },

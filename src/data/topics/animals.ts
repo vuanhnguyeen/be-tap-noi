@@ -7,7 +7,7 @@ export const animalsTopic: Topic = {
   description: "Bé gọi tên thật nhiều bạn động vật quen thuộc.",
   coverImage: "/images/noto/animals/cat.svg",
   coverEmoji: "🐱",
-  themeColor: "#8DD694",
+  themeColor: "#B3C64E",
   items: [
     { id: "animal-cat", name: "Con mèo", speechText: "Con mèo", audio: "/audio/animals/animal-cat.mp3", image: "/images/noto/animals/cat.svg", emoji: "🐱" },
     { id: "animal-dog", name: "Con chó", speechText: "Con chó", audio: "/audio/animals/animal-dog.mp3", image: "/images/noto/animals/dog.svg", emoji: "🐶" },

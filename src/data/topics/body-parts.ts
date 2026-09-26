@@ -7,7 +7,7 @@ export const bodyPartsTopic: Topic = {
   description: "Học nhiều bộ phận cơ thể gần gũi.",
   coverImage: "/images/noto/body-parts/eyes.svg",
   coverEmoji: "👀",
-  themeColor: "#74C0FC",
+  themeColor: "#BE9B77",
   items: [
     { id: "body-eyes", name: "Mắt", speechText: "Mắt", audio: "/audio/body-parts/body-eyes.mp3", image: "/images/noto/body-parts/eyes.svg", emoji: "👀" },
     { id: "body-nose", name: "Mũi", speechText: "Mũi", audio: "/audio/body-parts/body-nose.mp3", image: "/images/noto/body-parts/nose.svg", emoji: "👃" },

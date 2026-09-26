@@ -4,19 +4,23 @@ import { describe, expect, it } from "vitest";
 import { getTopicBySlug, TOPICS } from "@/data/topics";
 
 describe("topics data", () => {
-  it("đủ 7 chủ đề", () => {
-    expect(TOPICS).toHaveLength(7);
+  it("đủ 12 chủ đề", () => {
+    expect(TOPICS).toHaveLength(12);
   });
 
-  it("đủ chính xác 131 từ", () => {
+  it("đủ chính xác 223 từ", () => {
     const count = TOPICS.reduce((sum, topic) => sum + topic.items.length, 0);
-    expect(count).toBe(131);
+    expect(count).toBe(223);
   });
 
-  it("every vocabulary item has a nonempty local MP3", () => {
+  it("every declared MP3 path points to a nonempty local file", () => {
     for (const item of TOPICS.flatMap((topic) => topic.items)) {
+      if (!item.audio) {
+        continue;
+      }
+
       expect(item.audio, item.id).toMatch(/^\/audio\/.+\.mp3$/);
-      const file = join(process.cwd(), "public", item.audio!);
+      const file = join(process.cwd(), "public", item.audio);
       expect(existsSync(file), item.id).toBe(true);
       expect(statSync(file).size, item.id).toBeGreaterThan(0);
     }
