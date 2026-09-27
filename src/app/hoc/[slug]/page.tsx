@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: PageProps<"/hoc/[slug]">): Pr
   }
 
   return {
-    title: `${topic.name} | Bé Học Nói`,
+    title: `${topic.name} | Bé Tập Nói`,
     description: topic.description,
   };
 }

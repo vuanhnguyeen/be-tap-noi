@@ -3,6 +3,7 @@ import { actionsTopic } from "@/data/topics/actions";
 import { alphabetTopic } from "@/data/topics/alphabet";
 import { animalsTopic } from "@/data/topics/animals";
 import { bodyPartsTopic } from "@/data/topics/body-parts";
+import { clothingTopic } from "@/data/topics/clothing";
 import { colorsTopic } from "@/data/topics/colors";
 import { familyTopic } from "@/data/topics/family";
 import { foodsTopic } from "@/data/topics/foods";
@@ -19,6 +20,7 @@ export const TOPICS: Topic[] = [
   familyTopic,
   actionsTopic,
   foodsTopic,
+  clothingTopic,
   animalsTopic,
   fruitsTopic,
   vehiclesTopic,

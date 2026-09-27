@@ -10,9 +10,14 @@ ROOT = Path(__file__).resolve().parents[1]
 VOICE = "vi-VN-HoaiMyNeural"
 
 
-def vocabulary():
+def vocabulary(topic=None):
     items = []
-    for source in sorted((ROOT / "src/data/topics").glob("*.ts")):
+    sources = sorted((ROOT / "src/data/topics").glob("*.ts"))
+    if topic:
+        sources = [source for source in sources if source.stem == topic]
+        if not sources:
+            raise ValueError(f"Unknown topic: {topic}")
+    for source in sources:
         text = source.read_text()
         count = 0
         for block in re.findall(r"\{[^{}]*\}", text):
@@ -31,9 +36,9 @@ def vocabulary():
     return items
 
 
-async def main(force):
+async def main(force, topic=None):
     semaphore = asyncio.Semaphore(3)
-    items = vocabulary()
+    items = vocabulary(topic)
 
     async def generate(item):
         target = ROOT / "public" / item["audio"].lstrip("/")
@@ -63,4 +68,6 @@ async def main(force):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--force", action="store_true", help="Regenerate existing files after text changes")
-    asyncio.run(main(parser.parse_args().force))
+    parser.add_argument("--topic", help="Generate one topic, e.g. clothing")
+    args = parser.parse_args()
+    asyncio.run(main(args.force, args.topic))

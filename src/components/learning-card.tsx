@@ -1,4 +1,4 @@
-import { Hand, Sparkles, Star } from "lucide-react";
+import { Cloud, Flower2, Heart, Music2, Sparkles, Star } from "lucide-react";
 import type { LearningItem } from "@/types/learning";
 import { LearningImage } from "@/components/learning-image";
 import { PronunciationButton } from "@/components/pronunciation-button";
@@ -13,8 +13,12 @@ type LearningCardProps = {
 export function LearningCard({ item, isPressed, isPlaying, onSpeak }: LearningCardProps) {
   return (
     <div className="play-card" data-playing={isPlaying}>
-      <div className="play-card-hint"><Hand size={18} aria-hidden="true" /> Chạm hình, nghe nhé!</div>
-      <div className="play-sun" aria-hidden="true"><i /><i /><span /></div>
+      <Star className="play-deco play-deco-star-one" aria-hidden="true" />
+      <Flower2 className="play-deco play-deco-flower" aria-hidden="true" />
+      <Cloud className="play-deco play-deco-cloud" aria-hidden="true" />
+      <Heart className="play-deco play-deco-heart" aria-hidden="true" />
+      <Music2 className="play-deco play-deco-music" aria-hidden="true" />
+      <Sparkles className="play-deco play-deco-spark" aria-hidden="true" />
       <button
         type="button"
         onClick={onSpeak}
@@ -27,7 +31,6 @@ export function LearningCard({ item, isPressed, isPlaying, onSpeak }: LearningCa
           <Sparkles className="play-star play-star-two" aria-hidden="true" />
           <span className="play-picture" key={item.id}><LearningImage item={item} /></span>
           <span className="play-picture-shadow" aria-hidden="true" />
-          <span className="play-touch" aria-hidden="true"><Hand size={25} /></span>
         </span>
         <span className="play-word">{item.name}</span>
       </button>

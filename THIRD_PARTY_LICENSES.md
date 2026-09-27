@@ -27,3 +27,7 @@
 - Family, food, and action illustrations listed in `public/images/learning-illustrations-sources.json` are copied from Noto Emoji `v2.038/svg` (Apache 2.0).
 - The remaining action scenes (eat, drink, sit, open, close, jump, wash, brush, read) and food scenes (porridge, soup, yogurt) are project-created SVG drawings.
 - Number and Vietnamese letter artwork uses outlined Nunito weight 800 glyphs. Nunito is licensed under the SIL Open Font License 1.1; see `public/images/alphabet/NUNITO-OFL.txt`. SVGs contain paths and do not depend on fonts installed on the device.
+
+## Clothing topic
+
+The 12 SVGs in `public/images/noto/clothing/` are from Google Noto Emoji `v2.038/svg`, Apache License 2.0. Exact source filenames are recorded in `public/images/noto/clothing/sources.json`.

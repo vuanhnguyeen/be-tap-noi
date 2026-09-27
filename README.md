@@ -1,4 +1,4 @@
-# Bé Học Nói
+# Bé Tập Nói
 
 Website học nói tiếng Việt dành cho trẻ nhỏ (khoảng 2 tuổi), thiết kế cực kỳ đơn giản, nút lớn, chữ lớn, thao tác trực quan.
 
@@ -13,7 +13,7 @@ Website học nói tiếng Việt dành cho trẻ nhỏ (khoảng 2 tuổi), thi
 
 ## 2. Tính năng chính
 
-- Trang chủ hiển thị 12 chủ đề học
+- Trang chủ hiển thị 13 chủ đề học
 - Mỗi chủ đề có URL riêng, truy cập trực tiếp được
 - Trang học hiển thị từng từ một:
   - Hình minh họa lớn
@@ -28,7 +28,7 @@ Website học nói tiếng Việt dành cho trẻ nhỏ (khoảng 2 tuổi), thi
 - Hỗ trợ phím mũi tên trái/phải trên desktop
 - Hỗ trợ vuốt trái/phải trên cảm ứng
 - Fallback phát âm:
-  - Đã có 131 file MP3 giọng Hoài My, ưu tiên phát từ public/audio
+  - Đã có 235 file MP3 giọng Hoài My, ưu tiên phát từ public/audio
   - Không có MP3 thì dùng Web Speech API (`vi-VN`)
 
 ## 3. Sitemap
@@ -40,6 +40,7 @@ Website học nói tiếng Việt dành cho trẻ nhỏ (khoảng 2 tuổi), thi
 - `/hoc/gia-dinh` (10 từ)
 - `/hoc/hanh-dong` (16 từ)
 - `/hoc/do-an` (16 từ)
+- `/hoc/quan-ao` (12 từ)
 - `/hoc/con-vat` (30 từ)
 - `/hoc/trai-cay` (20 từ)
 - `/hoc/phuong-tien` (18 từ)

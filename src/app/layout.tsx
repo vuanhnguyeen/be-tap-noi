@@ -15,7 +15,7 @@ const nunito = Nunito({
 });
 
 export const metadata: Metadata = {
-  title: "Bé Học Nói Tiếng Việt",
+  title: "Bé Tập Nói Tiếng Việt",
   description: "Website học nói tiếng Việt đơn giản cho trẻ nhỏ.",
   manifest: "/manifest.webmanifest",
   icons: {
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     ],
     apple: [{ url: "/icons/icon-192.svg", type: "image/svg+xml" }],
   },
-  applicationName: "Bé Học Nói",
+  applicationName: "Bé Tập Nói",
 };
 
 export const viewport: Viewport = {
