@@ -6,6 +6,8 @@ class MockUtterance {
   lang = "";
   rate = 1;
   pitch = 1;
+  volume = 1;
+  voice: SpeechSynthesisVoice | null = null;
   onstart: (() => void) | null = null;
   onend: (() => void) | null = null;
   onerror: (() => void) | null = null;
@@ -17,9 +19,15 @@ describe("usePronunciation", () => {
   beforeEach(() => {
     vi.restoreAllMocks();
 
+    const voices = [
+      { lang: "vi-VN" } as SpeechSynthesisVoice,
+      { lang: "en-US" } as SpeechSynthesisVoice,
+    ];
+
     Object.defineProperty(window, "speechSynthesis", {
       writable: true,
       value: {
+        getVoices: vi.fn(() => voices),
         cancel: vi.fn(),
         speak: vi.fn((utterance: MockUtterance) => {
           utterance.onstart?.();
@@ -49,6 +57,24 @@ describe("usePronunciation", () => {
     expect(window.speechSynthesis.speak).toHaveBeenCalledTimes(1);
     expect(result.current.isSupported).toBe(true);
   });
+
+  it("đọc tiếng Anh bằng speech synthesis khi bấm nút Anh", async () => {
+    const { result } = renderHook(() => usePronunciation());
+
+    await act(async () => {
+      await result.current.playEnglish({
+        id: "animal-cat",
+        name: "Con mèo",
+        speechText: "Con mèo",
+        image: "/images/noto/animals/cat.svg",
+      });
+    });
+
+    expect(window.speechSynthesis.speak).toHaveBeenCalledTimes(1);
+    const firstCall = (window.speechSynthesis.speak as ReturnType<typeof vi.fn>).mock.calls[0]?.[0] as MockUtterance;
+    expect(firstCall.lang.toLowerCase().startsWith("en")).toBe(true);
+    expect(firstCall.text).toBe("Cat");
+  });
 });
 
 class MockAudio {
@@ -77,8 +103,17 @@ describe("MP3 playback", () => {
   beforeEach(() => {
     MockAudio.instances = [];
     Object.defineProperty(window, "Audio", { writable: true, value: MockAudio });
+    const voices = [
+      { lang: "vi-VN" } as SpeechSynthesisVoice,
+      { lang: "en-US" } as SpeechSynthesisVoice,
+    ];
     Object.defineProperty(window, "speechSynthesis", {
-      writable: true, value: { cancel: vi.fn(), speak: vi.fn() },
+      writable: true,
+      value: {
+        getVoices: vi.fn(() => voices),
+        cancel: vi.fn(),
+        speak: vi.fn(),
+      },
     });
     Object.defineProperty(window, "SpeechSynthesisUtterance", { writable: true, value: MockUtterance });
   });

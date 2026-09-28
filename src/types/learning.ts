@@ -2,6 +2,7 @@ export type LearningItem = {
   id: string;
   name: string;
   speechText: string;
+  englishText?: string;
   image: string;
   audio?: string;
   emoji?: string;

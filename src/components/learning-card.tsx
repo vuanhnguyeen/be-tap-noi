@@ -7,10 +7,21 @@ type LearningCardProps = {
   item: LearningItem;
   isPressed: boolean;
   isPlaying: boolean;
+  isVietnamesePlaying: boolean;
+  isEnglishPlaying: boolean;
   onSpeak: () => void;
+  onSpeakEnglish: () => void;
 };
 
-export function LearningCard({ item, isPressed, isPlaying, onSpeak }: LearningCardProps) {
+export function LearningCard({
+  item,
+  isPressed,
+  isPlaying,
+  isVietnamesePlaying,
+  isEnglishPlaying,
+  onSpeak,
+  onSpeakEnglish,
+}: LearningCardProps) {
   return (
     <div className="play-card" data-playing={isPlaying}>
       <Star className="play-deco play-deco-star-one" aria-hidden="true" />
@@ -35,7 +46,22 @@ export function LearningCard({ item, isPressed, isPlaying, onSpeak }: LearningCa
         <span className="play-word">{item.name}</span>
       </button>
       <div className="play-listen">
-        <PronunciationButton onClick={onSpeak} isPlaying={isPlaying} ariaLabel={`Nghe ${item.speechText}`} />
+        <div className="play-listen-group">
+          <PronunciationButton
+            onClick={onSpeak}
+            isPlaying={isVietnamesePlaying}
+            ariaLabel={`Nghe tiếng Việt ${item.speechText}`}
+            label="Việt"
+            variant="vietnamese"
+          />
+          <PronunciationButton
+            onClick={onSpeakEnglish}
+            isPlaying={isEnglishPlaying}
+            ariaLabel={`Nghe tiếng Anh ${item.name}`}
+            label="Anh"
+            variant="english"
+          />
+        </div>
       </div>
       <span className="play-ground play-ground-left" aria-hidden="true" />
       <span className="play-ground play-ground-right" aria-hidden="true" />

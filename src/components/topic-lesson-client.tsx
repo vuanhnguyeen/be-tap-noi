@@ -24,7 +24,7 @@ const SWIPE_THRESHOLD = 40;
 export function TopicLessonClient({ topic }: TopicLessonClientProps) {
   const { soundEnabled, toggleSound } = useSoundPreference();
   const { currentItem, progressLabel, mode, next, previous, setMode } = useLearningSession(topic.items);
-  const { play, stop, isPlaying, isSupported } = usePronunciation();
+  const { play, playEnglish, stop, isPlaying, playingLanguage, isSupported } = usePronunciation();
   const [isPressed, setIsPressed] = useState(false);
   const [notice, setNotice] = useState<string>("");
   const touchStartXRef = useRef<number | null>(null);
@@ -39,6 +39,7 @@ export function TopicLessonClient({ topic }: TopicLessonClientProps) {
       return;
     }
 
+    setNotice("");
     await play(currentItem);
   }, [currentItem, isSupported, play, soundEnabled]);
 
@@ -57,6 +58,26 @@ export function TopicLessonClient({ topic }: TopicLessonClientProps) {
     stop();
     previous();
   }, [previous, stop]);
+
+  const handleSpeakEnglish = useCallback(async () => {
+    if (!soundEnabled) {
+      return;
+    }
+
+    if (!isSupported) {
+      setNotice("Thiết bị chưa hỗ trợ phát âm tiếng Anh.");
+      return;
+    }
+
+    const didSpeak = await playEnglish(currentItem);
+
+    if (!didSpeak) {
+      setNotice("Thiết bị chưa có giọng đọc tiếng Anh.");
+      return;
+    }
+
+    setNotice("");
+  }, [currentItem, isSupported, playEnglish, soundEnabled]);
 
   useEffect(() => {
     const onKeyDown = async (event: KeyboardEvent) => {
@@ -128,7 +149,15 @@ export function TopicLessonClient({ topic }: TopicLessonClientProps) {
       />
 
       <section className="play-content" aria-label={`Học ${topic.name.toLowerCase()}`}>
-        <LearningCard item={currentItem} isPressed={isPressed} isPlaying={isPlaying} onSpeak={() => void handleSpeak()} />
+        <LearningCard
+          item={currentItem}
+          isPressed={isPressed}
+          isPlaying={isPlaying}
+          isVietnamesePlaying={isPlaying && playingLanguage === "vi"}
+          isEnglishPlaying={isPlaying && playingLanguage === "en"}
+          onSpeak={() => void handleSpeak()}
+          onSpeakEnglish={() => void handleSpeakEnglish()}
+        />
 
         <LearningControls
           onPrevious={() => void handlePrevious()}
