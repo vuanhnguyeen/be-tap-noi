@@ -37,31 +37,38 @@ def vocabulary(topic=None):
 
 
 async def main(force, topic=None):
-    semaphore = asyncio.Semaphore(3)
     items = vocabulary(topic)
-
-    async def generate(item):
+    failures = []
+    for item in items:
         target = ROOT / "public" / item["audio"].lstrip("/")
         if target.exists() and target.stat().st_size and not force:
-            return
-        async with semaphore:
-            target.parent.mkdir(parents=True, exist_ok=True)
-            temporary = target.with_suffix(".tmp.mp3")
-            for attempt in range(3):
-                try:
-                    await edge_tts.Communicate(item["speechText"], VOICE).save(str(temporary))
-                    if not temporary.stat().st_size:
-                        raise ValueError("Empty audio response")
-                    temporary.replace(target)
-                    print(f"Generated {item['audio']}", flush=True)
-                    return
-                except Exception:
-                    temporary.unlink(missing_ok=True)
-                    if attempt == 2:
-                        raise
-                    await asyncio.sleep(2 ** attempt)
-
-    await asyncio.gather(*(generate(item) for item in items))
+            continue
+        target.parent.mkdir(parents=True, exist_ok=True)
+        temporary = target.with_suffix(".tmp.mp3")
+        # Sequential requests avoid bursts that can return empty TTS responses.
+        for attempt in range(6):
+            try:
+                await asyncio.wait_for(
+                    edge_tts.Communicate(item["speechText"], VOICE).save(str(temporary)),
+                    timeout=45,
+                )
+                if not temporary.stat().st_size:
+                    raise ValueError("Empty audio response")
+                temporary.replace(target)
+                print(f"Generated {item['audio']}", flush=True)
+                break
+            except Exception as error:
+                temporary.unlink(missing_ok=True)
+                print(f"Retry {attempt + 1}/6: {item['id']}: {error}", flush=True)
+                if attempt == 5:
+                    failures.append(item["id"])
+                else:
+                    await asyncio.sleep(min(2 ** (attempt + 1), 16))
+            finally:
+                temporary.unlink(missing_ok=True)
+        await asyncio.sleep(0.5)
+    if failures:
+        raise RuntimeError(f"Failed items: {', '.join(failures)}. Rerun to resume missing files.")
     print(f"Ready: {len(items)} MP3s, voice {VOICE}")
 
 

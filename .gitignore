@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Incomplete TTS downloads; only finished MP3 files belong in the repository.
+/public/audio/**/*.tmp.mp3

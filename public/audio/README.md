@@ -18,7 +18,7 @@ python3 -m venv /tmp/learning-child-tts-env
 /tmp/learning-child-tts-env/bin/python scripts/generate-audio.py
 ```
 
-Script cần mạng, đọc dữ liệu từ source, chỉ tạo file còn thiếu và thử lại tối đa ba lần nếu dịch vụ lỗi. Khi sửa nội dung `speechText`, xóa MP3 tương ứng rồi chạy lại, hoặc dùng `--force` để tạo lại toàn bộ. Nghe kiểm tra các từ mới trước khi sử dụng cho bé.
+Script cần mạng, đọc dữ liệu từ source, chỉ tạo file còn thiếu và thử tối đa sáu lần cho mỗi từ nếu dịch vụ lỗi. Các từ được tạo lần lượt, mỗi yêu cầu có thời gian chờ tối đa 45 giây. Nếu một từ vẫn lỗi, script tiếp tục những từ khác rồi báo danh sách lỗi; chạy lại để hoàn tất phần còn thiếu. Khi sửa nội dung `speechText`, xóa MP3 tương ứng rồi chạy lại, hoặc dùng `--force` để tạo lại toàn bộ. Nghe kiểm tra các từ mới trước khi sử dụng cho bé.
 
 Ví dụ: `animal-cat` → `/audio/animals/animal-cat.mp3` → “Con mèo”.
 
@@ -39,3 +39,7 @@ Ví dụ tạo lại:
 ```sh
 /tmp/learning-child-tts-env/bin/python scripts/generate-audio.py --topic alphabet --force
 ```
+
+## Kiểm tra trước khi đưa lên web
+
+`npm run build` tự chạy kiểm tra toàn bộ đường dẫn audio trước khi build. Thiếu file hoặc file rỗng sẽ dừng build. Cần đưa các MP3 mới trong `public/audio/` lên Git cùng source; bản static export có audio trong `out/audio/`.
